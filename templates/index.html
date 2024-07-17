@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Halaqa Fish Restaurant menu</title>
+    <title>Al-Halaqa Fish Restaurant Menu</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,8 +26,7 @@
 
         .header .text-container {
             position: absolute;
-            top: 45%;
-            /* تعديل القيمة لخفض النص */
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -98,7 +96,7 @@
 
 <body>
     <div class="header">
-        <img src="static/images/image.jpg" alt="Background Image">
+        <img src="{{ url_for('static', filename='images/image.jpg') }}" alt="Background Image">
         <div class="text-container">
             <h1>Al-Hala fish restaurant</h1>
             <h2>Food Menu</h2>
