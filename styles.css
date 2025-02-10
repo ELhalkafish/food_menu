@@ -1,105 +1,61 @@
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
+/* تحسين تنسيق الفيديو ليملأ الشاشة */
 .header {
     position: relative;
     width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
+    height: 40vh; /* يجعل الفيديو يغطي كامل الشاشة */
+    overflow: hidden;
 }
 
 .background-video {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    object-fit: cover; /* يجعل الفيديو يغطي المساحة بأكملها */
+    z-index: -1; /* يجعل الفيديو في الخلف */
 }
 
-.text-container h1 {
-    font-size: 6vw;
-    font-weight: bold;
-    margin: 0;
-    color: rgb(255, 255, 0);
-    text-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
+/* تحسين عرض الفيديو على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .background-video {
+        object-fit: contain; /* يجعل الفيديو يظهر كاملاً في شاشة الهاتف */
+    }
 }
 
-.text-container h2 {
-    font-size: 3vw;
-    font-weight: bold;
-    margin: 10px 0;
-    color: rgb(255, 255, 255);
-}
-
-
-
-
-
+/* باقي التنسيق كما هو */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(400px, 1fr)); 
-    gap: 10px;
-    padding: 10px;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
-
 
 .gallery img {
-    width: 100%; 
-    max-width: 500px; 
-    height: auto; 
-    max-height: 400px; 
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* تكبير الصور قليلاً عند التمرير */
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* تحسين العرض على الشاشات الكبيرة */
-@media (min-width: 1200px) {
-    .gallery img {
-        max-width: 1000px; 
-        max-height: 1100px;
-    }
-}
-
-/* تحسين العرض على الشاشات المتوسطة (تابلت) */
+/* استجابة الشاشة */
 @media (max-width: 1024px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-
     .gallery img {
-        max-width: 450px;
-        max-height: 350px;
+        max-width: 90%;
     }
 }
 
-/* تحسين العرض على الهواتف */
 @media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
     .gallery img {
-        max-width: 100%; 
-        max-height: 300px;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery img {
+        max-width: 100%;
     }
 }
